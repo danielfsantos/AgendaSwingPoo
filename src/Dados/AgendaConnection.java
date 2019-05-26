@@ -10,16 +10,16 @@ import java.util.logging.Logger;
 
 public class AgendaConnection {
     
-    private static String ConnectionString = "jdbc:derby://localhost:1527/AgendaDB;user=root";
+    private static String ConnectionString = "jdbc:mysql://localhost:3306/db_agenda?useUnicode=yes&characterEncoding=UTF-8&useTimezone=true&serverTimezone=UTC";
     private static Connection con = null;
     private static Statement stmt = null;
-    
+    private static String user = "root";
     
     public static void ConnectionAgendaDB(){
     
         try {
-            Class.forName("com.mysql.cj.jdbc.driver").newInstance();
-            con = DriverManager.getConnection(ConnectionString);
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+            con = DriverManager.getConnection(ConnectionString,"root","");
             
             
         } catch (ClassNotFoundException ex) {
