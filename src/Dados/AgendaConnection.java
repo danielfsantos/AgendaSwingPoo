@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public class AgendaConnection {
     
-    private static String ConnectionString = "jdbc:derby://localhost:1527/AgendaDB;user=root;password=root";
+    private static String ConnectionString = "jdbc:derby://localhost:1527/AgendaDB;user=root";
     private static Connection con = null;
     private static Statement stmt = null;
     
@@ -18,7 +18,7 @@ public class AgendaConnection {
     public static void ConnectionAgendaDB(){
     
         try {
-            Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+            Class.forName("com.mysql.cj.jdbc.driver").newInstance();
             con = DriverManager.getConnection(ConnectionString);
             
             
