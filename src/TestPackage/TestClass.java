@@ -14,6 +14,6 @@ public class TestClass {
     public static void main(String [] args ) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
         
        // AgendaConnection.ConnectionAgendaDB();
-        TipoMateriaConnection.saveMateria();
+       // TipoMateriaConnection.saveMateria();
     }
 }

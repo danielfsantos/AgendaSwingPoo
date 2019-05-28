@@ -8,6 +8,8 @@ package Templates;
 import Controles.cadTipoMateriaController;
 import Dados.TipoMateriaConnection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,7 +18,7 @@ import java.util.logging.Logger;
  * @author Daniel
  */
 public class CadTipoMateria extends javax.swing.JFrame{
-    public Objetos.ObjTipoMateria tipoMateria = new Objetos.ObjTipoMateria();
+ 
     public cadTipoMateriaController cadTipoMateriaController = new cadTipoMateriaController();
     
     public CadTipoMateria() {
@@ -64,9 +66,8 @@ public class CadTipoMateria extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
-       tipoMateria.setNome(txtNome.getText());
-        try {
-            cadTipoMateriaController.getSaveTipoMateria();
+       try {
+            cadTipoMateriaController.getSaveTipoMateria(txtNome.getText());
         } catch (SQLException ex) {
             Logger.getLogger(CadTipoMateria.class.getName()).log(Level.SEVERE, null, ex);
         }

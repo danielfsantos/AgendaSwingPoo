@@ -8,13 +8,9 @@ package Controles;
 import Dados.TipoMateriaConnection;
 import java.sql.SQLException;
 
-/**
- *
- * @author Daniel
- */
 public class cadTipoMateriaController extends TipoMateriaConnection{
     
-    public void getSaveTipoMateria() throws SQLException{
-        TipoMateriaConnection.saveMateria();
+    public void getSaveTipoMateria(String nome) throws SQLException{
+        TipoMateriaConnection.saveMateria(nome);
     }
 }

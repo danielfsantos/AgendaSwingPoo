@@ -19,11 +19,11 @@ public class TipoMateriaConnection extends AgendaConnection{
     
     public static Objetos.ObjTipoMateria tipoMateria = new Objetos.ObjTipoMateria();
     
-    public static void saveMateria() throws SQLException{
+    public static void saveMateria(String nome) throws SQLException{
         String sql = "insert into tipoMateria(nome) values (?)";
         try {
             PreparedStatement st = AgendaConnection.ConnectionAgendaDB().prepareStatement(sql);
-            st.setString(1, tipoMateria.getNome());
+            st.setString(1, nome);
             st.execute();
             AgendaConnection.ConnectionAgendaDB().close();
             
@@ -37,9 +37,6 @@ public class TipoMateriaConnection extends AgendaConnection{
     
     
     }
-    
-    
-    
     
 }
 
