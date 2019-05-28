@@ -2,6 +2,8 @@
 package TestPackage;
 
 import Dados.AgendaConnection;
+import Dados.TipoMateriaConnection;
+import java.sql.SQLException;
 
 /**
  *
@@ -9,9 +11,9 @@ import Dados.AgendaConnection;
  */
 public class TestClass {
     
-    public static void main(String [] args ){
+    public static void main(String [] args ) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
         
-        AgendaConnection.ConnectionAgendaDB();
-        
+       // AgendaConnection.ConnectionAgendaDB();
+       // TipoMateriaConnection.saveMateria();
     }
 }
