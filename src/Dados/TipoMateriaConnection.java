@@ -16,9 +16,7 @@ import java.util.logging.Logger;
  * @author Daniel
  */
 public class TipoMateriaConnection extends AgendaConnection{
-    
-    public static Objetos.ObjTipoMateria tipoMateria = new Objetos.ObjTipoMateria();
-    
+   
     public static void saveMateria(String nome) throws SQLException{
         String sql = "insert into tipoMateria(nome) values (?)";
         try {
