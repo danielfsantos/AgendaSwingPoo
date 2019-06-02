@@ -9,16 +9,17 @@ package Controles;
  *
  * @author Daniel
  */
-public class cadTarefasController {
 
-    public boolean CampoIsNull(String campo1, String campo2, String campo3) {
-        if (campo1 == "" & campo2 == "" && campo3 == "") {
+import Dados.TarefaConnection;
+import java.sql.Date;
+import java.sql.SQLException;
 
-            return true;
-        } else {
-
-            return false;
-        }
+public class cadTarefasController extends TarefaConnection {
+    
+    public static void getSaveTarefa(String nome,Date datatarefa,String descricao,int id_cad_status,int id_tipomateria,int id_tipotarefa) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+        TarefaConnection.saveTarefa(nome,datatarefa,descricao,id_cad_status,id_tipomateria,id_tipotarefa);
+        
     }
+ }
 
-}
+

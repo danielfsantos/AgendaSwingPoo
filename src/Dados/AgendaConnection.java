@@ -21,4 +21,6 @@ public class AgendaConnection {
         return con = DriverManager.getConnection(ConnectionString, "root", "");
 
     }
+
+      
 }
