@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 public class TipoMateriaConnection extends AgendaConnection{
    
     public static void saveMateria(String nome) throws SQLException{
-        String sql = "insert into tipoMateria(nome) values (?)";
+        String sql = "insert into tipoMateria(Materia) values (?)";
         try {
             PreparedStatement st = AgendaConnection.ConnectionAgendaDB().prepareStatement(sql);
             st.setString(1, nome);
