@@ -42,10 +42,13 @@ public class HomeTarefas extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        JmenuCadTarefa = new javax.swing.JMenu();
+        JmenuCadTipoMaterias = new javax.swing.JMenu();
+        JmenuCadStatus = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Home");
+        setExtendedState(6);
 
         jLabel1.setText("Tarefastotal");
 
@@ -134,11 +137,14 @@ public class HomeTarefas extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Semanal", jScrollPane2);
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        JmenuCadTarefa.setText("Cadastro de Tarefas");
+        jMenuBar1.add(JmenuCadTarefa);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        JmenuCadTipoMaterias.setText("Cadastro de Materias");
+        jMenuBar1.add(JmenuCadTipoMaterias);
+
+        JmenuCadStatus.setText("Cadastro de Status");
+        jMenuBar1.add(JmenuCadStatus);
 
         setJMenuBar(jMenuBar1);
 
@@ -202,6 +208,9 @@ public class HomeTarefas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu JmenuCadStatus;
+    private javax.swing.JMenu JmenuCadTarefa;
+    private javax.swing.JMenu JmenuCadTipoMaterias;
     private javax.swing.JProgressBar TarefasConcluidas;
     private javax.swing.JProgressBar TarefasForaDoPrazo;
     private javax.swing.JProgressBar TarefasNoPrazo;
@@ -210,8 +219,6 @@ public class HomeTarefas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

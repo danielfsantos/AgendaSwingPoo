@@ -4,14 +4,19 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="JmenuCadTarefa">
           <Properties>
-            <Property name="text" type="java.lang.String" value="File"/>
+            <Property name="text" type="java.lang.String" value="Cadastro de Tarefas"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="JmenuCadTipoMaterias">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Edit"/>
+            <Property name="text" type="java.lang.String" value="Cadastro de Materias"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="JmenuCadStatus">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cadastro de Status"/>
           </Properties>
         </Menu>
       </SubComponents>
@@ -19,6 +24,8 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Home"/>
+    <Property name="extendedState" type="int" value="6"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
