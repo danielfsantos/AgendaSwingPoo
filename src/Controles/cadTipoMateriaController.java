@@ -14,7 +14,7 @@ public class cadTipoMateriaController extends TipoMateriaConnection implements I
     public void getSaveTipoMateria(String nome) throws SQLException {
         if (!checkCampos(nome)) {
             TipoMateriaConnection.saveMateria(nome);
-            JOptionPane.showConfirmDialog(null, "Tarefa Salva com sucesso", "Atenção !", JOptionPane.DEFAULT_OPTION);
+            JOptionPane.showConfirmDialog(null, "Materia Salva com sucesso", "Atenção !", JOptionPane.DEFAULT_OPTION);
         }else {
             JOptionPane.showConfirmDialog(null, "Ocorreu um erro", "Atenção !", JOptionPane.DEFAULT_OPTION);
         }

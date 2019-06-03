@@ -47,11 +47,6 @@ public cadTipoTarefaController cadtipotarefacontroller = new cadTipoTarefaContro
                 btnSaveTipoTarefaMouseClicked(evt);
             }
         });
-        btnSaveTipoTarefa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveTipoTarefaActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Tarefa");
 
@@ -106,10 +101,6 @@ public cadTipoTarefaController cadtipotarefacontroller = new cadTipoTarefaContro
         Logger.getLogger(CadTipoTarefa.class.getName()).log(Level.SEVERE, null, ex);
     }
     }//GEN-LAST:event_btnSaveTipoTarefaMouseClicked
-
-    private void btnSaveTipoTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveTipoTarefaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSaveTipoTarefaActionPerformed
 
     /**
      * @param args the command line arguments

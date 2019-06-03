@@ -18,7 +18,7 @@ public class cadTipoTarefaController extends TipoTarefaConnection implements Int
  public void getSaveTipoTarefa(String nome) throws SQLException {
         if (!checkCampos(nome)) {
             TipoTarefaConnection.saveTipoTarefa(nome);
-            JOptionPane.showConfirmDialog(null, "Tarefa Salva com sucesso", "Atenção !", JOptionPane.DEFAULT_OPTION);
+            JOptionPane.showConfirmDialog(null, "Tipo Tarefa Salva com sucesso", "Atenção !", JOptionPane.DEFAULT_OPTION);
         }else {
             JOptionPane.showConfirmDialog(null, "Ocorreu um erro", "Atenção !", JOptionPane.DEFAULT_OPTION);
         }

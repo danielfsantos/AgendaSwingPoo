@@ -71,29 +71,14 @@ public class CadTarefas extends javax.swing.JFrame {
                 BtnSaveMouseClicked(evt);
             }
         });
-        BtnSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSaveActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Descrição:");
 
         jLabel4.setText("Materia:");
 
         cboMateria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cboMateria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboMateriaActionPerformed(evt);
-            }
-        });
 
         cboTarefa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cboTarefa.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cboTarefaMouseClicked(evt);
-            }
-        });
 
         jLabel5.setText("Tarefa:");
 
@@ -185,19 +170,6 @@ public class CadTarefas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
-    private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
-        // TODO add your handling code here:
-       
-
-    }//GEN-LAST:event_BtnSaveActionPerformed
-    private void cboMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMateriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cboMateriaActionPerformed
-
-    private void cboTarefaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboTarefaMouseClicked
-
-    }//GEN-LAST:event_cboTarefaMouseClicked
 
     private void BtnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSaveMouseClicked
         // TODO add your handling code here:
