@@ -3,6 +3,8 @@ package Templates;
 import Controles.HomeController;
 import Controles.cadTarefasController;
 import Controles.ListTarefaController;
+import Dados.ListMateriaConnection;
+import Dados.ListStatusConnection;
 import Dados.ListTarefaConnection;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -16,10 +18,14 @@ public class CadTarefas extends javax.swing.JFrame {
 
     public cadTarefasController cadControler = new cadTarefasController();
     public ListTarefaConnection listaconnection = new ListTarefaConnection();
+    public ListMateriaConnection listamateriaconnection = new  ListMateriaConnection();
+    public ListStatusConnection liststatusconnection = new ListStatusConnection();
 
     public CadTarefas() {
         initComponents();
         preencherTarefa();
+        preencherMateria();
+        preencherStatus();
     }
 
     @SuppressWarnings("unchecked")
@@ -236,8 +242,42 @@ public class CadTarefas extends javax.swing.JFrame {
         cboTarefa.removeAllItems();
         try {
             for (String a : listaconnection.selectListTarefa()) {
-                System.out.print(a);
                 cboTarefa.addItem(a);
+            }
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+     public void preencherMateria() {
+        cboMateria.removeAllItems();
+        
+        try {
+            for (String a : listamateriaconnection.selectListMateria()) {
+                cboMateria.addItem(a);
+            }
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     
+          public void preencherStatus() {
+              cboStatusTarefa.removeAllItems();
+        try {
+            for (String a : liststatusconnection.selectListStatus()) {
+                cboStatusTarefa.addItem(a);
             }
         } catch (IllegalAccessException ex) {
             Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
