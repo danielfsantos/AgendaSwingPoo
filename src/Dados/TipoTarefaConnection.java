@@ -7,19 +7,16 @@ package Dados;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
- * @author Daniel
+ * @author PauloPC
  */
-public class TipoMateriaConnection extends AgendaConnection{
-   
-    public static void saveMateria(String nome) throws SQLException{
-        String sql = "insert into tipoMateria(Materia) values (?)";
+public class TipoTarefaConnection extends AgendaConnection {
+ public static void saveTipoTarefa(String nome) throws SQLException{
+        String sql = "insert into tipoTarefa(Tarefa) values (?)";
         try {
             PreparedStatement st = AgendaConnection.ConnectionAgendaDB().prepareStatement(sql);
             st.setString(1, nome);
@@ -36,5 +33,5 @@ public class TipoMateriaConnection extends AgendaConnection{
     
     }
     
-}
+}   
 
