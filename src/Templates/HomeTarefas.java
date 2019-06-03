@@ -43,6 +43,7 @@ public class HomeTarefas extends javax.swing.JFrame {
         JmenuCadTarefa = new javax.swing.JMenu();
         JmenuCadTipoMaterias = new javax.swing.JMenu();
         JmenuCadStatus = new javax.swing.JMenu();
+        jMenuCadTipoTarefa = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
@@ -117,10 +118,28 @@ public class HomeTarefas extends javax.swing.JFrame {
         jMenuBar1.add(JmenuCadTarefa);
 
         JmenuCadTipoMaterias.setText("Cadastro de Materias");
+        JmenuCadTipoMaterias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JmenuCadTipoMateriasMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(JmenuCadTipoMaterias);
 
         JmenuCadStatus.setText("Cadastro de Status");
+        JmenuCadStatus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JmenuCadStatusMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(JmenuCadStatus);
+
+        jMenuCadTipoTarefa.setText("Cadastro de Tipo De Tarefa");
+        jMenuCadTipoTarefa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuCadTipoTarefaMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenuCadTipoTarefa);
 
         setJMenuBar(jMenuBar1);
 
@@ -145,6 +164,24 @@ public class HomeTarefas extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
       preencherTabela();
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void JmenuCadTipoMateriasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JmenuCadTipoMateriasMouseClicked
+        // TODO add your handling code here:
+        CadTipoMateria cadtipomateria = new CadTipoMateria();
+        cadtipomateria.setVisible(true);
+    }//GEN-LAST:event_JmenuCadTipoMateriasMouseClicked
+
+    private void JmenuCadStatusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JmenuCadStatusMouseClicked
+        // TODO add your handling code here:
+        CadStatus cadstatus = new CadStatus();
+        cadstatus.setVisible(true);
+    }//GEN-LAST:event_JmenuCadStatusMouseClicked
+
+    private void jMenuCadTipoTarefaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuCadTipoTarefaMouseClicked
+        // TODO add your handling code here:
+        CadTipoTarefa cadtipotarefa = new CadTipoTarefa();
+        cadtipotarefa.setVisible(true);
+    }//GEN-LAST:event_jMenuCadTipoTarefaMouseClicked
 
     public static void main(String args[]) throws ClassNotFoundException, SQLException, InstantiationException {
 
@@ -204,6 +241,7 @@ public class HomeTarefas extends javax.swing.JFrame {
     private javax.swing.JTable JtableHome;
     private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuCadTipoTarefa;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

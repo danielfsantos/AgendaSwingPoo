@@ -17,11 +17,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastro de Materias"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JmenuCadTipoMateriasMouseClicked"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="JmenuCadStatus">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastro de Status"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JmenuCadStatusMouseClicked"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenuCadTipoTarefa">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cadastro de Tipo De Tarefa"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuCadTipoTarefaMouseClicked"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>

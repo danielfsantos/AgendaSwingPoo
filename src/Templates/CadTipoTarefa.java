@@ -38,12 +38,18 @@ public cadTipoTarefaController cadtipotarefacontroller = new cadTipoTarefaContro
         txtTipoTarefa = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Tipo De Tarefa");
 
         btnSaveTipoTarefa.setText("Salvar");
         btnSaveTipoTarefa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSaveTipoTarefaMouseClicked(evt);
+            }
+        });
+        btnSaveTipoTarefa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveTipoTarefaActionPerformed(evt);
             }
         });
 
@@ -100,6 +106,10 @@ public cadTipoTarefaController cadtipotarefacontroller = new cadTipoTarefaContro
         Logger.getLogger(CadTipoTarefa.class.getName()).log(Level.SEVERE, null, ex);
     }
     }//GEN-LAST:event_btnSaveTipoTarefaMouseClicked
+
+    private void btnSaveTipoTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveTipoTarefaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveTipoTarefaActionPerformed
 
     /**
      * @param args the command line arguments

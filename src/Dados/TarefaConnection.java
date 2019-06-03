@@ -22,7 +22,7 @@ public class TarefaConnection extends AgendaConnection {
 
     public static void saveTarefa(String nome, Date datatarefa, String descricao, String id_cad_status, String id_tipomateria, String id_tipotarefa) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
-        String sql = "insert into tarefas(nome,datatarefa,descricao,id_cad_status,id_tipomateria,id_tipotarefa) values ?,?,?,?,?,?";
+        String sql = "insert into tarefas(nome,datatarefa,descricao,id_cadStatus,id_tipoMateria,id_tipoTarefa) values ?,?,?,?,?,?";
 
         try {
             PreparedStatement st = AgendaConnection.ConnectionAgendaDB().prepareStatement(sql);
@@ -32,7 +32,7 @@ public class TarefaConnection extends AgendaConnection {
             st.setInt(4, getIdCadStatus(id_cad_status));
             st.setInt(5, getIdTipoMateria(id_tipomateria));
             st.setInt(6, getIdTipoTarefa(id_tipotarefa));
-
+            st.execute();
             AgendaConnection.ConnectionAgendaDB().close();
 
         } catch (ClassNotFoundException ex) {
@@ -47,35 +47,38 @@ public class TarefaConnection extends AgendaConnection {
     }
 
     public static int getIdTipoMateria(String nome) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-        String query = "select id from tipoTarefa where tarefa = " + nome + "";
+        String query = "select id from tipoMateria where Materia = ?";
         PreparedStatement ps = AgendaConnection.ConnectionAgendaDB().prepareStatement(query);
+        ps.setString(1, nome);
         ResultSet rs = ps.executeQuery();
         int idTipoMateria = 0;
         while (rs.next()) {
-            idTipoMateria = rs.getInt("id");
+            idTipoMateria = rs.getInt("id");         
         }
         return idTipoMateria;
     }
 
     public static int getIdCadStatus(String nome) throws IllegalAccessException, InstantiationException, SQLException, ClassNotFoundException {
-        String query = "select id from cadStatus where tarefa = " + nome + "";
+        String query = "select id from cadStatus  where Status = ?";
         PreparedStatement ps = AgendaConnection.ConnectionAgendaDB().prepareStatement(query);
+          ps.setString(1, nome);
         ResultSet rs = ps.executeQuery();
         int idCadStatus = 0;
         while (rs.next()) {
             idCadStatus = rs.getInt("id");
+            System.out.print(idCadStatus);
         }
         return idCadStatus;
     }
     public static int getIdTipoTarefa(String nome) throws IllegalAccessException, InstantiationException, SQLException, ClassNotFoundException{
-     String query = "select id from tipoTarefa where tarefa = " + nome + "";
+     String query = "select id from tipoTarefa where tarefa = ?";
     PreparedStatement ps = AgendaConnection.ConnectionAgendaDB().prepareStatement(query);
+    ps.setString(1, nome);
         ResultSet rs = ps.executeQuery();
         int idTipoTarefa = 0;
         while(rs.next()){
             idTipoTarefa = rs.getInt("id");
         }
-        
         return idTipoTarefa;
     }
 }
