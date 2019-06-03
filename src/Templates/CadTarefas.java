@@ -66,6 +66,11 @@ public class CadTarefas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtDescricao);
 
         BtnSave.setText("Salvar");
+        BtnSave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnSaveMouseClicked(evt);
+            }
+        });
         BtnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSaveActionPerformed(evt);
@@ -183,7 +188,20 @@ public class CadTarefas extends javax.swing.JFrame {
 
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
         // TODO add your handling code here:
-        try {
+       
+
+    }//GEN-LAST:event_BtnSaveActionPerformed
+    private void cboMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMateriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboMateriaActionPerformed
+
+    private void cboTarefaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboTarefaMouseClicked
+
+    }//GEN-LAST:event_cboTarefaMouseClicked
+
+    private void BtnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSaveMouseClicked
+        // TODO add your handling code here:
+         try {
             cadControler.getSaveTarefa(txtNomeTarefa.getText(),dtData.getText(), txtDescricao.getText(), cboStatusTarefa.getSelectedItem().toString(), cboMateria.getSelectedItem().toString(), cboTarefa.getSelectedItem().toString());
         } catch (SQLException ex) {
             Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
@@ -195,15 +213,7 @@ public class CadTarefas extends javax.swing.JFrame {
         } catch (IllegalAccessException ex) {
             Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-    }//GEN-LAST:event_BtnSaveActionPerformed
-    private void cboMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMateriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cboMateriaActionPerformed
-
-    private void cboTarefaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboTarefaMouseClicked
-
-    }//GEN-LAST:event_cboTarefaMouseClicked
+    }//GEN-LAST:event_BtnSaveMouseClicked
     public static void main(String args[]) {
 
         /* Set the Nimbus look and feel */

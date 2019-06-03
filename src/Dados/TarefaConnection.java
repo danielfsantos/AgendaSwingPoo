@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -22,27 +23,25 @@ public class TarefaConnection extends AgendaConnection {
 
     public static void saveTarefa(String nome, String datatarefa, String descricao, String id_cad_status, String id_tipomateria, String id_tipotarefa) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
-        String sql = "insert into tarefas(nome,datatarefa,descricao,id_cadStatus,id_tipoMateria,id_tipoTarefa) values ?,?,?,?,?,?";
-
+        //String sql = "insert into tarefas(nome,datatarefa,descricao,id_cadStatus,id_tipoMateria,id_tipoTarefa) values ?,?,?,?,?,?";
+         String sql = "insert into tarefas(nome,datatarefa,descricao,id_cadStatus,id_tipoMateria,id_tipoTarefa) values ('"+nome+"','"+datatarefa+"','"+descricao+"','"+getIdCadStatus(id_cad_status)+"','"+getIdTipoMateria(id_tipomateria)+"','"+getIdTipoTarefa(id_tipotarefa)+"')";
         try {
-            PreparedStatement st = AgendaConnection.ConnectionAgendaDB().prepareStatement(sql);
-            st.setString(1, nome);
-            st.setString(2, datatarefa);
-            st.setString(3, descricao);
-            st.setInt(4, getIdCadStatus(id_cad_status));
-            st.setInt(5, getIdTipoMateria(id_tipomateria));
-            st.setInt(6, getIdTipoTarefa(id_tipotarefa));
-            st.execute();
+            
+            //PreparedStatement st = AgendaConnection.ConnectionAgendaDB().prepareStatement(sql);
+            //st.setString(1, nome);
+            //st.setString(2, datatarefa);
+            //st.setString(3, descricao);
+            //st.setInt(4, getIdCadStatus(id_cad_status));
+            //st.setInt(5, getIdTipoMateria(id_tipomateria));
+            //st.setInt(6, getIdTipoTarefa(id_tipotarefa));
+            //st.execute();
+            Statement st = AgendaConnection.ConnectionAgendaDB().createStatement();
+            st.executeUpdate(sql);
             AgendaConnection.ConnectionAgendaDB().close();
 
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(TarefaConnection.class.getName()).log(Level.SEVERE, null, ex);
 
-        } catch (InstantiationException ex) {
-            Logger.getLogger(TarefaConnection.class.getName()).log(Level.SEVERE, null, ex);
-
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(TarefaConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
