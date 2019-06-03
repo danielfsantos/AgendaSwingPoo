@@ -9,7 +9,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 
 public class cadTarefasController extends TarefaConnection {
-    public static void getSaveTarefa(String nome,Date datatarefa,String descricao,String id_cad_status,String id_tipomateria,String id_tipotarefa) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public static void getSaveTarefa(String nome,String datatarefa,String descricao,String id_cad_status,String id_tipomateria,String id_tipotarefa) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         TarefaConnection.saveTarefa(nome,datatarefa,descricao,id_cad_status,id_tipomateria,id_tipotarefa);
     }
  }

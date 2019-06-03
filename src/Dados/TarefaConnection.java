@@ -20,14 +20,14 @@ import java.util.logging.Logger;
  */
 public class TarefaConnection extends AgendaConnection {
 
-    public static void saveTarefa(String nome, Date datatarefa, String descricao, String id_cad_status, String id_tipomateria, String id_tipotarefa) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public static void saveTarefa(String nome, String datatarefa, String descricao, String id_cad_status, String id_tipomateria, String id_tipotarefa) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
         String sql = "insert into tarefas(nome,datatarefa,descricao,id_cadStatus,id_tipoMateria,id_tipoTarefa) values ?,?,?,?,?,?";
 
         try {
             PreparedStatement st = AgendaConnection.ConnectionAgendaDB().prepareStatement(sql);
             st.setString(1, nome);
-            st.setDate(2, datatarefa);
+            st.setString(2, datatarefa);
             st.setString(3, descricao);
             st.setInt(4, getIdCadStatus(id_cad_status));
             st.setInt(5, getIdTipoMateria(id_tipomateria));

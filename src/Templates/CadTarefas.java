@@ -184,11 +184,8 @@ public class CadTarefas extends javax.swing.JFrame {
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
         // TODO add your handling code here:
         try {
-            SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
-            java.sql.Date data = new java.sql.Date(format.parse(dtData.getText()).getTime());
-        
-            cadControler.getSaveTarefa(txtNomeTarefa.getText(),data, txtDescricao.getText(), cboStatusTarefa.getSelectedItem().toString(), cboMateria.getSelectedItem().toString(), cboTarefa.getSelectedItem().toString());
-        } catch (SQLException | ParseException ex) {
+            cadControler.getSaveTarefa(txtNomeTarefa.getText(),dtData.getText(), txtDescricao.getText(), cboStatusTarefa.getSelectedItem().toString(), cboMateria.getSelectedItem().toString(), cboTarefa.getSelectedItem().toString());
+        } catch (SQLException ex) {
             Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
 
         } catch (ClassNotFoundException ex) {
