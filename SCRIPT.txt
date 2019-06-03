@@ -1,6 +1,25 @@
 create database DB_AGENDA
-
 use DB_AGENDA;
+
+
+create table cadStatus(
+id INT(11) NOT NULL AUTO_INCREMENT,
+Status VARCHAR(60),
+CONSTRAINT cadStatus PRIMARY KEY (id)
+);
+
+
+create table tipoMateria(
+id INT(11) NOT NULL AUTO_INCREMENT,
+Materia VARCHAR(60),
+CONSTRAINT tipoMateria PRIMARY KEY (id)
+);
+
+create table tipoTarefa(
+id INT(11) NOT NULL AUTO_INCREMENT,
+Tarefa VARCHAR(60),
+CONSTRAINT tipoTarefa PRIMARY KEY (id)
+);
 
 CREATE TABLE tarefas
 ( id INT(11) NOT NULL AUTO_INCREMENT,
@@ -15,23 +34,3 @@ CREATE TABLE tarefas
   FOREIGN KEY (id_tipoMateria) REFERENCES tipoMateria(id),
   FOREIGN KEY (id_tipoTarefa) REFERENCES tipoTarefa(id)
 );
-
-create table cadStatus(
-id INT(11) NOT NULL AUTO_INCREMENT,
-nome VARCHAR(20),
-CONSTRAINT cadStatus PRIMARY KEY (id)
-);
-
-
-create table tipoMateria(
-id INT(11) NOT NULL AUTO_INCREMENT,
-nome VARCHAR(20),
-CONSTRAINT tipoMateria PRIMARY KEY (id)
-);
-
-create table tipoTarefa(
-id INT(11) NOT NULL AUTO_INCREMENT,
-nome VARCHAR(20),
-CONSTRAINT tipoTarefa PRIMARY KEY (id)
-)
-
