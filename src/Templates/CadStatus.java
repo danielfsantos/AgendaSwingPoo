@@ -37,7 +37,8 @@ public class CadStatus extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtStatus = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Status");
 
         btncadsave.setText("Salvar");
         btncadsave.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -42,20 +42,21 @@ public class CadTarefas extends javax.swing.JFrame {
         BtnSave = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        cboMateria = new javax.swing.JComboBox<>();
-        cboTarefa = new javax.swing.JComboBox<>();
+        cboMateria = new javax.swing.JComboBox<Object>();
+        cboTarefa = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        cboStatusTarefa = new javax.swing.JComboBox<>();
+        cboStatusTarefa = new javax.swing.JComboBox<String>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Tarefas");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro de Tarefas"));
 
         jLabel1.setText("Nome da Tarefa:");
 
         try {
-            dtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            dtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -75,14 +76,14 @@ public class CadTarefas extends javax.swing.JFrame {
 
         jLabel4.setText("Materia:");
 
-        cboMateria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboMateria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboMateriaActionPerformed(evt);
             }
         });
 
-        cboTarefa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboTarefa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboTarefa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cboTarefaMouseClicked(evt);
@@ -93,7 +94,7 @@ public class CadTarefas extends javax.swing.JFrame {
 
         jLabel6.setText("Status da Tarefa:");
 
-        cboStatusTarefa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboStatusTarefa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -183,9 +184,10 @@ public class CadTarefas extends javax.swing.JFrame {
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
         // TODO add your handling code here:
         try {
-            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
             java.sql.Date data = new java.sql.Date(format.parse(dtData.getText()).getTime());
-            cadControler.getSaveTarefa(txtNomeTarefa.getText(), data, txtDescricao.getText(), cboStatusTarefa.getSelectedItem().toString(), cboMateria.getSelectedItem().toString(), cboTarefa.getSelectedItem().toString());
+        
+            cadControler.getSaveTarefa(txtNomeTarefa.getText(),data, txtDescricao.getText(), cboStatusTarefa.getSelectedItem().toString(), cboMateria.getSelectedItem().toString(), cboTarefa.getSelectedItem().toString());
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
 
