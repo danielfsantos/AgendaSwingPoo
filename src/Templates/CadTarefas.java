@@ -1,6 +1,4 @@
-
 package Templates;
-
 
 import Controles.HomeController;
 import Controles.cadTarefasController;
@@ -14,19 +12,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
-
 public class CadTarefas extends javax.swing.JFrame {
 
-    
     public cadTarefasController cadControler = new cadTarefasController();
-    public ListTarefaController listatarefacontroller = new ListTarefaController();
-    
-      public CadTarefas() {
+    public ListTarefaConnection listaconnection = new ListTarefaConnection();
+
+    public CadTarefas() {
         initComponents();
         preencherTarefa();
-    
-      }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -178,20 +172,17 @@ public class CadTarefas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
+
+
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
         // TODO add your handling code here:
         try {
             SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-            java.sql.Date data = new java.sql.Date(format.parse(dtData.getText()).getTime());                    
-
-            cadControler.getSaveTarefa(txtNomeTarefa.getText(),data,txtDescricao.getText(),Integer.parseInt(cboStatusTarefa.getSelectedItem().toString()),Integer.parseInt(cboMateria.getSelectedItem().toString()),Integer.parseInt(cboTarefa.getSelectedItem().toString()));
-            
-            
+            java.sql.Date data = new java.sql.Date(format.parse(dtData.getText()).getTime());
+            cadControler.getSaveTarefa(txtNomeTarefa.getText(), data, txtDescricao.getText(), Integer.parseInt(cboStatusTarefa.getSelectedItem().toString()), Integer.parseInt(cboMateria.getSelectedItem().toString()), Integer.parseInt(cboTarefa.getSelectedItem().toString()));
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -199,7 +190,7 @@ public class CadTarefas extends javax.swing.JFrame {
         } catch (IllegalAccessException ex) {
             Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_BtnSaveActionPerformed
     private void cboMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMateriaActionPerformed
         // TODO add your handling code here:
@@ -209,9 +200,7 @@ public class CadTarefas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_cboTarefaMouseClicked
     public static void main(String args[]) {
-        
-       
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -239,26 +228,28 @@ public class CadTarefas extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CadTarefas().setVisible(true);
-           }
+            }
         });
     }
-    
-    public void preencherTarefa(){
+
+    public void preencherTarefa() {
+        cboTarefa.removeAllItems();
         try {
-            for(String a : listatarefacontroller.preenchertarefa()){
+            for (String a : listaconnection.selectListTarefa()) {
+                System.out.print(a);
                 cboTarefa.addItem(a);
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (IllegalAccessException ex) {
             Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
             Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (SQLException ex) {
+            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSave;

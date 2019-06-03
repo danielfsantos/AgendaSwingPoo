@@ -8,6 +8,8 @@ package Dados;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,11 +18,15 @@ import javax.swing.JOptionPane;
  */
 public class ListTarefaConnection extends AgendaConnection {
     
-     public static ResultSet selectListTarefa() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+     public  List<String> selectListTarefa() throws IllegalAccessException, InstantiationException, SQLException, ClassNotFoundException {
         String query = "select id,tarefa from tipoTarefa";
         PreparedStatement ps = AgendaConnection.ConnectionAgendaDB().prepareStatement(query);
         ResultSet rs = ps.executeQuery();
-        return rs;
+        List<String> lista = new ArrayList<>();
+        while(rs.next()){
+            lista.add(rs.getString("tarefa"));
+        }
+        return lista;
     }
     
 }
