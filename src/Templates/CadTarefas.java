@@ -185,7 +185,7 @@ public class CadTarefas extends javax.swing.JFrame {
         try {
             SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
             java.sql.Date data = new java.sql.Date(format.parse(dtData.getText()).getTime());
-            cadControler.getSaveTarefa(txtNomeTarefa.getText(), data, txtDescricao.getText(), Integer.parseInt(cboStatusTarefa.getSelectedItem().toString()), Integer.parseInt(cboMateria.getSelectedItem().toString()), Integer.parseInt(cboTarefa.getSelectedItem().toString()));
+            cadControler.getSaveTarefa(txtNomeTarefa.getText(), data, txtDescricao.getText(), cboStatusTarefa.getSelectedItem().toString(), cboMateria.getSelectedItem().toString(), cboTarefa.getSelectedItem().toString());
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
 

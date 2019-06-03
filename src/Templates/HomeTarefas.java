@@ -23,6 +23,7 @@ public class HomeTarefas extends javax.swing.JFrame {
      */
     public HomeTarefas() {
         initComponents();
+        preencherTabela();
     }
 
     /**
@@ -142,7 +143,7 @@ public class HomeTarefas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-      kk();
+      preencherTabela();
     }//GEN-LAST:event_jButton1MouseClicked
 
     public static void main(String args[]) throws ClassNotFoundException, SQLException, InstantiationException {
@@ -178,7 +179,7 @@ public class HomeTarefas extends javax.swing.JFrame {
         });
     }
 
-    public void kk() {
+    public void preencherTabela() {
         HomeController homecontroller = new HomeController();
         DefaultTableModel table;
         try {
