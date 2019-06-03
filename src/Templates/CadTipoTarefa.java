@@ -5,12 +5,18 @@
  */
 package Templates;
 
+import Controles.cadStatusController;
+import Controles.cadTipoTarefaController;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author PauloPC
  */
 public class CadTipoTarefa extends javax.swing.JFrame {
-
+public cadTipoTarefaController cadtipotarefacontroller = new cadTipoTarefaController();
     /**
      * Creates new form CadTipoTarefa
      */
@@ -28,13 +34,18 @@ public class CadTipoTarefa extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
+        btnSaveTipoTarefa = new javax.swing.JButton();
+        txtTipoTarefa = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton2.setText("Salvar");
+        btnSaveTipoTarefa.setText("Salvar");
+        btnSaveTipoTarefa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSaveTipoTarefaMouseClicked(evt);
+            }
+        });
 
         jLabel1.setText("Tarefa");
 
@@ -45,11 +56,11 @@ public class CadTipoTarefa extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSaveTipoTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtTipoTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -57,10 +68,10 @@ public class CadTipoTarefa extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 35, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTipoTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addComponent(jButton2))
+                .addComponent(btnSaveTipoTarefa))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -79,6 +90,16 @@ public class CadTipoTarefa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSaveTipoTarefaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveTipoTarefaMouseClicked
+    try {
+        // TODO add your handling code here:
+        cadtipotarefacontroller.getSaveTipoTarefa(txtTipoTarefa.getText());
+        txtTipoTarefa.setText("");
+    } catch (SQLException ex) {
+        Logger.getLogger(CadTipoTarefa.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_btnSaveTipoTarefaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -116,9 +137,9 @@ public class CadTipoTarefa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnSaveTipoTarefa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtTipoTarefa;
     // End of variables declaration//GEN-END:variables
 }
