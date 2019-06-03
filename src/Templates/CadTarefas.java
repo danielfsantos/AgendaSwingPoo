@@ -1,7 +1,11 @@
 
 package Templates;
 
+
+import Controles.HomeController;
 import Controles.cadTarefasController;
+import Controles.ListTarefaController;
+import Dados.ListTarefaConnection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -10,24 +14,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+
+
 public class CadTarefas extends javax.swing.JFrame {
 
     
     public cadTarefasController cadControler = new cadTarefasController();
+    public ListTarefaController listatarefacontroller = new ListTarefaController();
     
-    public CadTarefas() {
+      public CadTarefas() {
         initComponents();
-        
-        TarefaDAO dao = new TarefaDAO()
-        
-                for(Tarefa t = dao.read(){
-                    cboMateria.addItem(t);
-                }
-        
-        
-    }
+        preencherTarefa();
+    
+      }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -83,6 +83,11 @@ public class CadTarefas extends javax.swing.JFrame {
         });
 
         cboTarefa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboTarefa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cboTarefaMouseClicked(evt);
+            }
+        });
 
         jLabel5.setText("Tarefa:");
 
@@ -165,14 +170,16 @@ public class CadTarefas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
         // TODO add your handling code here:
         try {
@@ -197,7 +204,14 @@ public class CadTarefas extends javax.swing.JFrame {
     private void cboMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMateriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cboMateriaActionPerformed
+
+    private void cboTarefaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboTarefaMouseClicked
+
+    }//GEN-LAST:event_cboTarefaMouseClicked
     public static void main(String args[]) {
+        
+       
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -225,14 +239,26 @@ public class CadTarefas extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CadTarefas().setVisible(true);
-            }
+           }
         });
     }
     
-    
-    
-    
-    
+    public void preencherTarefa(){
+        try {
+            for(String a : listatarefacontroller.preenchertarefa()){
+                cboTarefa.addItem(a);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(CadTarefas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSave;
