@@ -46,19 +46,8 @@ public class CadStatus extends javax.swing.JFrame {
                 btncadsaveMouseClicked(evt);
             }
         });
-        btncadsave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncadsaveActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Status");
-
-        txtStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStatusActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -119,14 +108,6 @@ public class CadStatus extends javax.swing.JFrame {
             Logger.getLogger(CadStatus.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btncadsaveMouseClicked
-
-    private void btncadsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncadsaveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btncadsaveActionPerformed
-
-    private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtStatusActionPerformed
 
     /**
      * @param args the command line arguments

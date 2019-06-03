@@ -65,15 +65,10 @@ public class HomeTarefas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(JtableHome);
 
-        jButton1.setText("Carregar Tabela");
+        jButton1.setText("Recarregar Tabela");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -110,11 +105,6 @@ public class HomeTarefas extends javax.swing.JFrame {
                 JmenuCadTarefaMouseClicked(evt);
             }
         });
-        JmenuCadTarefa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JmenuCadTarefaActionPerformed(evt);
-            }
-        });
         jMenuBar1.add(JmenuCadTarefa);
 
         JmenuCadTipoMaterias.setText("Cadastro de Materias");
@@ -146,20 +136,11 @@ public class HomeTarefas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JmenuCadTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JmenuCadTarefaActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_JmenuCadTarefaActionPerformed
-
     private void JmenuCadTarefaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JmenuCadTarefaMouseClicked
         // TODO add your handling code here:
         CadTarefas cadtarefas = new CadTarefas();
         cadtarefas.setVisible(true);
     }//GEN-LAST:event_JmenuCadTarefaMouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
       preencherTabela();
